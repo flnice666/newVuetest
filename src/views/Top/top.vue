@@ -23,6 +23,7 @@ export default {
       } else {
         this.$store.commit("setText", { nametext: "" });
         this.$store.commit("setLand", { land: false });
+        localStorage.setItem('getLogin', 'false');
       }
     },
   },

@@ -10,6 +10,9 @@ export default createStore({
     },
     setLand(state, payload){
       state.landBoolean = payload.land
+      if(payload.land){
+        localStorage.setItem("getLogin", 'true');
+      }
     }
   },
   getters:{
