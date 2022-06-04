@@ -1,21 +1,22 @@
 import { createStore } from "vuex";
 export default createStore({
   state: {
-    listData:{1:10},
-    num:10
+    landBoolean: false,
+    text: ''
   },
   mutations: {
-    setData(state,value){
-        state.listData=value
+    setText(state, payload){
+      state.text = payload.nametext
     },
-    addNum(state){
-      state.num=state.num+10
+    setLand(state, payload){
+      state.landBoolean = payload.land
     }
   },
-  actions: {
-    setData(context,value){
-      context.commit('setData',value)
-    },
+  getters:{
+    getText(state){
+      return 'hello' + state.text
+    }
   },
+  actions: {},
   modules: {}
 });

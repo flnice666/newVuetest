@@ -1,15 +1,36 @@
 <template>
   <div>
     <span class="topfont">
-      <span class="leftfont">欢迎你 肯德基用户</span>
-      <span class="outfont">退出</span>
+      <span class="leftfont">欢迎你 肯德基用户{{ this.text }}</span>
+      <a class="outfont" @click="landup">{{
+        this.$store.state.landBoolean ? "退出" : "登录"
+      }}</a>
       <van-icon class="iconstyle" name="user-o" />
     </span>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapState, mapGetters } from "vuex";
+export default {
+  methods: {
+    landup() {
+      console.log(this.getText, "点击发生变化");
+      if (!this.$store.state.landBoolean) {
+        this.$router.push({
+          path: "/land",
+        });
+      } else {
+        this.$store.commit("setText", { nametext: "" });
+        this.$store.commit("setLand", { land: false });
+      }
+    },
+  },
+  computed: {
+    ...mapState(["text"]),
+    ...mapGetters(["getText"]),
+  },
+};
 </script>
 
 <style>
@@ -17,7 +38,7 @@ export default {};
   font-size: 12px;
   display: flex;
 }
-.leftfont{
+.leftfont {
   flex: 1;
   text-align: right;
   padding-right: 38px;
@@ -28,10 +49,9 @@ export default {};
   width: 40px;
   text-align: center;
 }
-.outfont{
+.outfont {
   display: inline-block;
   width: 40px;
   text-align: center;
 }
-
 </style>

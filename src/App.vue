@@ -1,11 +1,9 @@
 <script>
 import Top from "./views/Top/top.vue"
-import Bottom from "./views/Bottom/bottom.vue"
 export default {
   name: 'app',
   components:{
     Top,
-    Bottom,
   }
 }
 </script>
@@ -13,13 +11,16 @@ export default {
 <template>
   <div class="phone">
     <Top />
-    <router-view />
-    <Bottom />
+    <router-view class="center" />
+
   </div>
 </template>
 
 <style>
 .phone{
   padding: 0 20px;
+}
+.center{
+  height: calc(100vh - 120px);
 }
 </style>

@@ -7,6 +7,14 @@ const routes = [
     {
         path: '/home',
         component: () => import('../views/Center/center.vue')
+    },
+    {
+        path: '/land',
+        component: () => import('../views/Land/land.vue')
+    },
+    {
+        path: '/eatpage',
+        component: () => import('../views/Eat/eat.vue')
     }
 ];
 
